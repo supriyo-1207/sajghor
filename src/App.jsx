@@ -8,20 +8,6 @@ function App() {
   return (
     <>
       <Navbar />
-
-      <main className="pt-24">
-        <section id="home"></section>
-
-        <section id="categories"></section>
-
-        <section id="products"></section>
-
-        <section id="videos"></section>
-
-        <section id="about"></section>
-
-        <section id="contact"></section>
-      </main>
       <Hero />
      
       <Products />

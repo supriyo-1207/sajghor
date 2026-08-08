@@ -1,98 +1,138 @@
 import heroBanner from "../assets/banner.jpg";
 import { MessageCircle, ArrowRight } from "lucide-react";
 
+const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-[90vh] flex items-center bg-gradient-to-b from-[#FFF8F2] to-white"
+      className="relative overflow-hidden bg-[#FFF9F6] pt-28 pb-14 sm:pt-32 sm:pb-20 lg:min-h-screen lg:flex lg:items-center"
     >
-      <div className="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+      {/* Background decoration */}
 
-        {/* Left Content */}
+      <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-[#F7E7D6] blur-3xl opacity-60 pointer-events-none" />
 
-        <div>
-          <span className="inline-block bg-[#F7E7D6] text-[#8B1E3F] px-4 py-1 rounded-full text-sm font-medium mb-5">
-            Handmade with Love ❤️
-          </span>
+      <div className="absolute bottom-0 -left-32 w-72 h-72 rounded-full bg-[#F3DDE2] blur-3xl opacity-40 pointer-events-none" />
 
-          <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-[#5A2D2D]">
-            Beautiful Handmade
-            <br />
-            Jewellery for
-            <span className="text-[#8B1E3F]"> Every Occasion</span>
-          </h1>
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full">
 
-          <p className="mt-6 text-gray-600 text-lg leading-8 max-w-xl">
-            Discover unique handmade jewellery, resin art, customized gift
-            boxes and beautiful accessories crafted with love. Shipping
-            available all over India.
-          </p>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          <div className="flex flex-wrap gap-4 mt-10">
+          {/* Content */}
 
-            <a
-              href="#products"
-              className="flex items-center gap-2 bg-[#8B1E3F] hover:bg-[#6B2C2C] text-white px-7 py-3 rounded-full transition"
-            >
-              Shop Collection
-              <ArrowRight size={18} />
-            </a>
+          <div className="max-w-xl">
 
-            <a
-              href="https://wa.me/91XXXXXXXXXX"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 border border-[#8B1E3F] text-[#8B1E3F] hover:bg-[#8B1E3F] hover:text-white px-7 py-3 rounded-full transition"
-            >
-              <MessageCircle size={18} />
-              Order on WhatsApp
-            </a>
+            {/* Small label */}
+
+            <div className="inline-flex items-center gap-2 bg-[#F7E7D6] text-[#8B1E3F] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E3F]" />
+              Handmade with Love
+            </div>
+
+            {/* Heading */}
+
+            <h1 className="text-[2.6rem] leading-[1.08] sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#5A2D2D]">
+              Jewellery Made
+              <br className="hidden sm:block" />
+              <span className="text-[#8B1E3F]">
+                {" "}Beautifully Unique
+              </span>
+            </h1>
+
+            {/* Description */}
+
+            <p className="mt-5 sm:mt-6 text-gray-600 text-base sm:text-lg leading-7 sm:leading-8 max-w-lg">
+              Discover handcrafted jewellery, beautiful gift boxes
+              and unique creations made specially for your
+              memorable moments.
+            </p>
+
+            {/* Buttons */}
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-7 sm:mt-9">
+
+              {/* Primary */}
+
+              <a
+                href="#products"
+                className="inline-flex items-center justify-center gap-2 bg-[#8B1E3F] hover:bg-[#6B2C2C] text-white px-6 sm:px-7 py-3.5 rounded-full font-medium transition-all duration-300 hover:shadow-lg active:scale-[0.98]"
+              >
+                Explore Collection
+                <ArrowRight size={18} />
+              </a>
+
+              {/* WhatsApp */}
+
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border border-[#8B1E3F] text-[#8B1E3F] hover:bg-[#8B1E3F] hover:text-white px-6 sm:px-7 py-3.5 rounded-full font-medium transition-all duration-300 active:scale-[0.98]"
+              >
+                <MessageCircle size={18} />
+                WhatsApp Us
+              </a>
+
+            </div>
+
+            {/* Small trust message */}
+
+            <div className="flex items-center gap-3 mt-7 text-sm text-gray-500">
+
+              <div className="flex -space-x-2">
+                <span className="w-7 h-7 rounded-full bg-[#E8C8B8] border-2 border-[#FFF9F6]" />
+                <span className="w-7 h-7 rounded-full bg-[#DDB6A5] border-2 border-[#FFF9F6]" />
+                <span className="w-7 h-7 rounded-full bg-[#CFA08E] border-2 border-[#FFF9F6]" />
+              </div>
+
+              <p>
+                Handcrafted with care
+              </p>
+
+            </div>
 
           </div>
 
-          <div className="flex flex-wrap gap-8 mt-12 text-gray-600">
+          {/* Image */}
 
-            <div>
-              <h3 className="text-2xl font-bold text-[#8B1E3F]">
-                100%
-              </h3>
-              <p>Handmade</p>
-            </div>
+          <div className="relative">
 
-            <div>
-              <h3 className="text-2xl font-bold text-[#8B1E3F]">
-                India
-              </h3>
-              <p>Shipping</p>
-            </div>
+            {/* Decorative circle */}
 
-            <div>
-              <h3 className="text-2xl font-bold text-[#8B1E3F]">
-                Custom
-              </h3>
-              <p>Gift Orders</p>
+            <div className="absolute -top-5 -left-5 sm:-top-8 sm:-left-8 w-24 h-24 sm:w-36 sm:h-36 bg-[#F7E7D6] rounded-full blur-2xl opacity-70" />
+
+            <div className="absolute -bottom-5 -right-5 sm:-bottom-8 sm:-right-8 w-28 h-28 sm:w-40 sm:h-40 bg-[#EED7DC] rounded-full blur-2xl opacity-60" />
+
+            {/* Image container */}
+
+            <div className="relative">
+
+              <img
+                src={heroBanner}
+                alt="Handmade jewellery collection by Sajghor"
+                className="w-full h-auto max-h-[620px] object-cover rounded-[1.5rem] sm:rounded-[2rem] shadow-xl"
+              />
+
+              {/* Floating badge */}
+
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg">
+                <p className="text-xs text-gray-500">
+                  Crafted with care
+                </p>
+
+                <p className="text-sm font-semibold text-[#5A2D2D]">
+                  Made for every occasion
+                </p>
+              </div>
+
             </div>
 
           </div>
-
-        </div>
-
-        {/* Right Image */}
-
-        <div className="relative">
-
-          <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#F7E7D6] rounded-full blur-3xl opacity-70"></div>
-
-          <img
-            src={heroBanner}
-            alt="Sajghor Handmade Jewellery"
-            className="relative rounded-3xl shadow-2xl w-full object-cover"
-          />
 
         </div>
 
       </div>
     </section>
   );
-} 
+}
