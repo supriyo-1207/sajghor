@@ -1,5 +1,8 @@
-const API_URL =
-  "https://script.google.com/macros/s/AKfycbzE_h5sGUsVkSzq2TmKxjRMZR46qJFVOOfx8iDk-0qiVCGeGZzI2RlZhkfYBf-hZ1g7hQ/exec";
+const API_URL = import.meta.env.VITE_SHEET_API_URL;
+
+if (!API_URL) {
+  throw new Error("Missing VITE_SHEET_API_URL in environment variables.");
+}
 
 export async function getProducts() {
   const response = await fetch(
