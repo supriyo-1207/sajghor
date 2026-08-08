@@ -1,111 +1,120 @@
-import { MessageCircle, Star } from "lucide-react";
+import { Star, MessageCircle } from "lucide-react";
+
+const WHATSAPP_NUMBER = "919XXXXXXXXX";
 
 export default function ProductCard({ product }) {
   const {
-    name,
-    category,
-    image,
-    originalPrice,
-    salePrice,
-    rating,
-    reviews,
-    whatsappMessage,
+    Name,
+    Category,
+    OriginalPrice,
+    SalePrice,
+    Rating,
+    Image,
   } = product;
 
   const discount =
-    originalPrice > salePrice
+    OriginalPrice > SalePrice
       ? Math.round(
-          ((originalPrice - salePrice) / originalPrice) * 100
+          ((OriginalPrice - SalePrice) / OriginalPrice) * 100
         )
       : 0;
 
+  const whatsappMessage = `Hi, I'm interested in this product.
+
+Product: ${Name}
+Category: ${Category}
+Price: ₹${SalePrice}
+Product ID: ${product.ID}`;
+
+  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+    <article className="group bg-white rounded-2xl overflow-hidden border border-[#eee5e0] hover:shadow-lg transition-all duration-300">
 
-      {/* Image */}
-
-      <div className="relative overflow-hidden">
+      {/* Product Image */}
+      <div className="relative aspect-square overflow-hidden bg-[#f8f5f3]">
 
         <img
-          src={image}
-          alt={name}
-          className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+          src={Image}
+          alt={Name}
+          loading="lazy"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
 
+        {/* Discount */}
         {discount > 0 && (
-          <span className="absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          <span className="absolute top-3 left-3 bg-[#8B1E3F] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
             {discount}% OFF
           </span>
         )}
 
       </div>
 
-      {/* Content */}
+      {/* Product Info */}
+      <div className="p-4 sm:p-5">
 
-      <div className="p-4">
-
-        <p className="text-sm text-[#8B1E3F] font-medium">
-          {category}
+        {/* Category */}
+        <p className="text-xs uppercase tracking-wide text-[#8B1E3F] font-medium">
+          {Category}
         </p>
 
-        <h3 className="text-lg font-semibold text-gray-800 mt-1 line-clamp-2">
-          {name}
+        {/* Name */}
+        <h3 className="mt-1 text-base sm:text-lg font-semibold text-[#4d3030] line-clamp-1">
+          {Name}
         </h3>
 
         {/* Rating */}
+        <div className="flex items-center gap-1.5 mt-2">
 
-        <div className="flex items-center mt-3">
+          <div className="flex items-center">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                key={star}
+                size={15}
+                className={
+                  star <= Math.round(Number(Rating))
+                    ? "fill-[#EAB308] text-[#EAB308]"
+                    : "text-gray-300"
+                }
+              />
+            ))}
+          </div>
 
-          {[...Array(5)].map((_, index) => (
-            <Star
-              key={index}
-              size={16}
-              className={
-                index < Math.round(rating)
-                  ? "fill-yellow-400 text-yellow-400"
-                  : "text-gray-300"
-              }
-            />
-          ))}
-
-          <span className="ml-2 text-sm text-gray-500">
-            ({reviews})
+          <span className="text-sm text-gray-500">
+            {Number(Rating).toFixed(1)}
           </span>
 
         </div>
 
         {/* Price */}
+        <div className="flex items-center gap-2 mt-3">
 
-        <div className="flex items-center gap-3 mt-4">
-
-          <span className="text-2xl font-bold text-[#5A2D2D]">
-            ₹{salePrice}
+          <span className="text-xl font-bold text-[#5A2D2D]">
+            ₹{Number(SalePrice).toLocaleString("en-IN")}
           </span>
 
-          {discount > 0 && (
-            <span className="line-through text-gray-400">
-              ₹{originalPrice}
+          {OriginalPrice > SalePrice && (
+            <span className="text-sm text-gray-400 line-through">
+              ₹{Number(OriginalPrice).toLocaleString("en-IN")}
             </span>
           )}
 
         </div>
 
-        {/* WhatsApp */}
-
+        {/* Buy Now */}
         <a
-          href={`https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(
-            `Hi, I'm interested in ${whatsappMessage}`
-          )}`}
+          href={whatsappLink}
           target="_blank"
-          rel="noreferrer"
-          className="mt-5 flex items-center justify-center gap-2 bg-[#8B1E3F] hover:bg-[#6B2C2C] text-white rounded-xl py-3 transition"
+          rel="noopener noreferrer"
+          className="mt-4 w-full flex items-center justify-center gap-2 bg-[#8B1E3F] hover:bg-[#6B2C2C] text-white py-2.5 rounded-xl text-sm sm:text-base font-medium transition-colors"
         >
-          <MessageCircle size={18} />
-
-          Order on WhatsApp
+          <MessageCircle size={17} />
+          Buy Now
         </a>
 
       </div>
-    </div>
+    </article>
   );
 }
