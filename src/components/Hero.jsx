@@ -1,7 +1,7 @@
 import heroBanner from "../assets/banner.jpg";
 import { MessageCircle, ArrowRight } from "lucide-react";
 
-const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+const WHATSAPP_NUMBER = "8609799352";
 
 export default function Hero() {
   return (
