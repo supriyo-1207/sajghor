@@ -8,7 +8,7 @@ const navLinks = [
   { name: "Contact", href: "contact" },
 ];
 
-const WHATSAPP_NUMBER = "8609799352";
+const WHATSAPP_NUMBER = "918609799352"; 
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

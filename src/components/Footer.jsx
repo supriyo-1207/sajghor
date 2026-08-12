@@ -5,7 +5,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-const WHATSAPP_NUMBER = "8609799352";
+const WHATSAPP_NUMBER = "918609799352"; 
 
 const INSTAGRAM_URL =
   "https://www.instagram.com/___sajghor__/";

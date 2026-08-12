@@ -1,6 +1,6 @@
 import { Star, MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "8609799352";
+const WHATSAPP_NUMBER = "918609799352"; 
 
 export default function ProductCard({ product }) {
   const {

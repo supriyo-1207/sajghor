@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
-const WHATSAPP_NUMBER = "8609799352";
+const WHATSAPP_NUMBER = "918609799352"; 
 
 const INSTAGRAM_URL = "https://www.instagram.com/___sajghor__/";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61591904462452";
