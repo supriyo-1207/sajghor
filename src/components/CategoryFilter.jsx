@@ -19,7 +19,7 @@ export default function CategoryFilter({
             }`}
           >
             {category}
-          </button>
+          </button> 
         );
       })}
     </div>
